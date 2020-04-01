@@ -1,38 +1,83 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+@font-face {
+  font-family: 'ButlerStencilMed';
+  src: url('fonts/Butler_Stencil_Webfont/ButlerStencil-ExtraBold.woff');
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  background-color: white;
+  min-height: 100px;
+  display: grid;
+  grid-auto-flow: column;
+  color: black;
+}
+
+.logo {
+  display: grid;
+  padding-left: 150px;
+  align-content: center;
+  justify-content: start;
+  font-family: 'ButlerStencilMed';
+  font-size: 2.5em;
+}
+
+.App-header nav {
+  display: grid;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-content: center;
 }
 
-.App-link {
-  color: #61dafb;
+.App-header ul {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-size: 1.2em;
+  list-style: none;
+  display: grid;
+  grid-auto-flow: column;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App-header li {
+  margin: 0 10px;
+}
+
+.Gallery {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.Post {
+  position: relative;
+  height: auto;
+  width: 200px;
+  margin: 10px;
+}
+
+.Post img {
+  max-width: 100%;
+  height: auto;
+}
+
+.text {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  font-size: 1.8em;
+  font-weight: 700;
+  font-family: 'IBM Plex Mono';
+  background: -webkit-repeating-linear-gradient(left, #ffedbc, #ed4264 );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.img-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.Post:hover .img-mask {
+  transition: .2s ease;
+  background-color: rgba(237,66,100,0.15);
 }

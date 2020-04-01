@@ -1,24 +1,63 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+
+class Gallery extends React.Component {
+  constructor(){
+    super();
+    this.state = {
+      imgsrc : []
+    }
+  }
+
+  componentDidMount(){
+    fetch('http://localhost:3030/json/insta-dora-barker-posts.json')
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      console.log(data);
+      this.setState({imgsrc : data});
+    })
+  }
+  render(){
+    return(
+      <section className="Gallery">
+        {
+          this.state.imgsrc.map((el, index) => {
+            return <Post key={index} src={el.imageUrl} alt={el.alt}/>
+          })
+        }
+      </section>
+    )
+  }
+}
+
+const Post = ({src, alt}) =>{
+  return(
+    <article className="Post">
+      <div className="img-mask"></div>
+      <img src={src} alt={alt}/>
+      <p className="text">HYPEBAE</p>
+    </article>
+  )
+}
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <section className="logo">
+          <h1>Dora Barker</h1>
+        </section>
+        <nav>
+          <ul>
+            <li>home</li>
+            <li>social</li>
+            <li>about</li>
+          </ul>
+        </nav>
       </header>
+      <Gallery />
     </div>
   );
 }
