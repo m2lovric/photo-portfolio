@@ -1,0 +1,20 @@
+.Posts {
+  columns: 2;
+  column-gap: 10px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.PostsImg {
+  width: 100%;
+  max-height: auto;
+  margin: 0 5px 5px 5px;
+}
+
+.PostsImg:nth-child(n) { order: 1;}
+.PostsImg:nth-child(n+1) { order: 2;}
+
+.PostsImg img {
+  max-width: 100%;
+  max-height: 100%;
+}

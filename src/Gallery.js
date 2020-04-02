@@ -9,7 +9,7 @@ class Gallery extends React.Component {
   }
 
   componentDidMount(){
-    fetch('http://localhost:3030/json/insta-dora-barker-posts.json')
+    fetch('https://api.myjson.com/bins/15zfps')
     .then((res) => {
       return res.json();
     })
